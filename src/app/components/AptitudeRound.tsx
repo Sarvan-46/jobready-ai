@@ -8,6 +8,10 @@ import {
   RotateCcw,
   Trophy,
 } from "lucide-react";
+import { saveRoundScore } from "../userData";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import { useAuth } from "../AuthContext";
 
 type Question = {
   question: string;
@@ -79,22 +83,24 @@ export function AptitudeRound() {
     Array(questions.length).fill(null)
   );
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [saveStatus, setSaveStatus] = useState("");
 
-  const score = useMemo(
-    () =>
-      selectedAnswers.reduce(
-        (total, selectedAnswer, index) =>
-          selectedAnswer === questions[index].answerIndex ? total + 1 : total,
-        0
-      ),
-    [selectedAnswers]
+  const score = useMemo(() => {
+  return selectedAnswers.reduce(
+    (total, selectedAnswer, index) =>
+      selectedAnswer === questions[index].answerIndex
+        ?(total ?? 0) + 1
+        : (total ?? 0),
+    0
   );
+}, [selectedAnswers]);
+
 
   const answeredCount = selectedAnswers.filter(
     (answer) => answer !== null
   ).length;
   const question = questions[currentQuestion];
-  const percentage = Math.round((score / questions.length) * 100);
+  const percentage = Math.round(((score ?? 0) / questions.length) * 100);
 
   const selectAnswer = (optionIndex: number) => {
     if (isSubmitted) return;
@@ -120,6 +126,23 @@ export function AptitudeRound() {
     setSelectedAnswers(Array(questions.length).fill(null));
     setCurrentQuestion(0);
     setIsSubmitted(false);
+    setSaveStatus("");
+  };
+
+  const submitTest = async () => {
+    setIsSubmitted(true);
+    setSaveStatus("Saving aptitude score...");
+
+    try {
+      await saveRoundScore("aptitude", percentage);
+      setSaveStatus("Aptitude score saved to Firebase.");
+    } catch (error) {
+      setSaveStatus(
+        error instanceof Error
+          ? error.message
+          : "Could not save aptitude score."
+      );
+    }
   };
 
   return (
@@ -165,6 +188,9 @@ export function AptitudeRound() {
                 <p className="text-[#94A3B8]">
                   Your final score has been calculated.
                 </p>
+                {saveStatus && (
+                  <p className="text-sm text-[#94A3B8] mt-2">{saveStatus}</p>
+                )}
               </div>
             </div>
             <button
@@ -323,7 +349,7 @@ export function AptitudeRound() {
                   </button>
                 ) : (
                   <button
-                    onClick={() => setIsSubmitted(true)}
+                    onClick={submitTest}
                     className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#10B981] to-[#059669] text-white rounded-lg hover:shadow-lg hover:shadow-[#10B981]/20 transition-all"
                   >
                     <CheckCircle2 className="w-4 h-4" />
@@ -377,7 +403,7 @@ export function AptitudeRound() {
             </div>
 
             <button
-              onClick={() => setIsSubmitted(true)}
+              onClick={submitTest}
               className="mt-6 w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white rounded-lg hover:shadow-lg hover:shadow-[#2563EB]/30 transition-all"
             >
               <CheckCircle2 className="w-4 h-4" />

@@ -1,16 +1,45 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Sparkles, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { isFirebaseConfigured } from "../firebase";
+import { useAuth } from "../AuthContext";
 
 export function Login() {
   const navigate = useNavigate();
+  const { login, signup } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/");
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      if (!isFirebaseConfigured) {
+        throw new Error("Firebase is not configured. Add your VITE_FIREBASE_* values to .env.");
+      }
+
+      if (isSignup) {
+        await signup(email, password);
+      } else {
+        await login(email, password);
+      }
+
+      navigate("/");
+    } catch (authError) {
+      setError(
+        authError instanceof Error
+          ? authError.message
+          : "Authentication failed. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -34,9 +63,13 @@ export function Login() {
         </div>
 
         <div className="bg-[#1E293B] rounded-2xl shadow-2xl p-8 border border-[#334155]">
-          <h2 className="text-2xl mb-2 text-white">Welcome back</h2>
+          <h2 className="text-2xl mb-2 text-white">
+            {isSignup ? "Create your account" : "Welcome back"}
+          </h2>
           <p className="text-[#94A3B8] mb-6">
-            Sign in to continue your preparation journey
+            {isSignup
+              ? "Sign up to save your interview scores"
+              : "Sign in to continue your preparation journey"}
           </p>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -81,6 +114,12 @@ export function Login() {
               </div>
             </div>
 
+            {error && (
+              <div className="rounded-lg border border-[#EF4444]/30 bg-[#EF4444]/10 px-4 py-3 text-sm text-[#FCA5A5]">
+                {error}
+              </div>
+            )}
+
             <div className="flex items-center justify-between">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -99,17 +138,25 @@ export function Login() {
 
             <button
               type="submit"
+              disabled={isSubmitting}
               className="w-full bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white py-3 rounded-lg hover:shadow-lg hover:shadow-[#2563EB]/50 transition-all duration-300"
             >
-              Sign in
+              {isSubmitting ? "Please wait..." : isSignup ? "Sign up" : "Sign in"}
             </button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-[#94A3B8]">
-              Don't have an account?{" "}
-              <button className="text-[#2563EB] hover:text-[#3B82F6] transition-colors">
-                Sign up
+              {isSignup ? "Already have an account?" : "Don't have an account?"}{" "}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSignup((value) => !value);
+                  setError("");
+                }}
+                className="text-[#2563EB] hover:text-[#3B82F6] transition-colors"
+              >
+                {isSignup ? "Sign in" : "Sign up"}
               </button>
             </p>
           </div>

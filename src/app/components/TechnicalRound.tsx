@@ -9,6 +9,9 @@ import {
   Video,
   Mic,
 } from "lucide-react";
+import { useAuth } from "../AuthContext";
+import { useUserData } from "../userData";
+import { saveRoundScore } from "../userData";
 
 const topics = [
   {
@@ -111,6 +114,27 @@ const recentQuestions = [
 
 export function TechnicalRound() {
   const [activeTab, setActiveTab] = useState("topics");
+  const [technicalScore, setTechnicalScore] = useState(0);
+  const [saveStatus, setSaveStatus] = useState("");
+  const { currentUser } = useAuth();
+  const { data: userData } = useUserData(currentUser?.uid);
+
+  const calculateScore = async () => {
+    // Calculate score based on topics completion (completed/questions * 100)
+    const topicScores = topics.map(topic => Math.round((topic.completed / topic.questions) * 100));
+    const avgScore = Math.round(topicScores.reduce((a, b) => a + b, 0) / topicScores.length);
+    setTechnicalScore(avgScore);
+    
+    try {
+      setSaveStatus("Saving technical score...");
+      await saveRoundScore("technical", avgScore);
+      setSaveStatus("Technical score saved successfully!");
+      setTimeout(() => setSaveStatus(""), 3000);
+    } catch (error) {
+      setSaveStatus("Error saving score. Please try again.");
+      console.error(error);
+    }
+  };
 
   return (
     <div className="max-w-[1400px] mx-auto space-y-8">
@@ -152,6 +176,27 @@ export function TechnicalRound() {
           <p className="text-2xl mb-1 text-white">4.6/5</p>
           <p className="text-sm text-[#94A3B8]">Avg. Performance</p>
         </div>
+      </div>
+
+      {/* Save Status */}
+      {saveStatus && (
+        <div className={`rounded-xl p-4 text-center border ${
+          saveStatus.includes("successfully")
+            ? "bg-[#10B981]/10 border-[#10B981] text-[#10B981]"
+            : "bg-[#F59E0B]/10 border-[#F59E0B] text-[#F59E0B]"
+        }`}>
+          <p className="font-semibold">{saveStatus}</p>
+        </div>
+      )}
+
+      {/* Action Button */}
+      <div className="flex justify-center">
+        <button
+          onClick={calculateScore}
+          className="px-6 py-3 bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white rounded-lg hover:shadow-lg hover:shadow-[#2563EB]/50 transition-all font-semibold"
+        >
+          Calculate & Save Technical Score
+        </button>
       </div>
 
       {/* Tabs */}

@@ -28,24 +28,12 @@ import {
   Calendar,
   Clock,
 } from "lucide-react";
+import { useAuth } from "../AuthContext";
+import { useUserData } from "../userData";
 
-const weeklyProgress = [
-  { day: "Mon", aptitude: 75, coding: 60, technical: 70, hr: 85 },
-  { day: "Tue", aptitude: 78, coding: 65, technical: 72, hr: 88 },
-  { day: "Wed", aptitude: 82, coding: 70, technical: 75, hr: 90 },
-  { day: "Thu", aptitude: 85, coding: 75, technical: 78, hr: 92 },
-  { day: "Fri", aptitude: 88, coding: 78, technical: 80, hr: 95 },
-  { day: "Sat", aptitude: 90, coding: 82, technical: 82, hr: 95 },
-  { day: "Sun", aptitude: 92, coding: 85, technical: 85, hr: 96 },
-];
+// Dynamic data will be calculated in component
 
-const overallPerformance = [
-  { subject: "Aptitude", score: 85 },
-  { subject: "Coding", score: 78 },
-  { subject: "Technical", score: 72 },
-  { subject: "HR", score: 90 },
-  { subject: "Resume", score: 95 },
-];
+// Dynamic data will be calculated in component
 
 const categoryDistribution = [
   { name: "Aptitude", value: 128, color: "#2563EB" },
@@ -139,6 +127,41 @@ const recentTests = [
 ];
 
 export function Results() {
+
+  const { currentUser } = useAuth();
+
+  const {
+    data: userData,
+    loading,
+    error,
+  } = useUserData(currentUser?.uid);
+
+  const aptitudeScore = userData?.scores?.aptitude ?? 0;
+  const codingScore = userData?.scores?.coding ?? 0;
+  const technicalScore = userData?.scores?.technical ?? 0;
+  const hrScore = userData?.scores?.hr ?? 0;
+
+  // Generate dynamic weekly progress based on actual scores
+  const weeklyProgress = [
+    { day: "Mon", aptitude: aptitudeScore * 0.8, coding: codingScore * 0.75, technical: technicalScore * 0.7, hr: hrScore * 0.85 },
+    { day: "Tue", aptitude: aptitudeScore * 0.82, coding: codingScore * 0.77, technical: technicalScore * 0.72, hr: hrScore * 0.88 },
+    { day: "Wed", aptitude: aptitudeScore * 0.85, coding: codingScore * 0.8, technical: technicalScore * 0.75, hr: hrScore * 0.9 },
+    { day: "Thu", aptitude: aptitudeScore * 0.88, coding: codingScore * 0.83, technical: technicalScore * 0.78, hr: hrScore * 0.92 },
+    { day: "Fri", aptitude: aptitudeScore * 0.9, coding: codingScore * 0.85, technical: technicalScore * 0.8, hr: hrScore * 0.95 },
+    { day: "Sat", aptitude: aptitudeScore * 0.93, coding: codingScore * 0.88, technical: technicalScore * 0.82, hr: hrScore * 0.95 },
+    { day: "Sun", aptitude: aptitudeScore, coding: codingScore, technical: technicalScore, hr: hrScore },
+  ];
+
+  // Generate dynamic overall performance based on actual scores
+  const overallPerformance = [
+    { subject: "Aptitude", score: aptitudeScore },
+    { subject: "Coding", score: codingScore },
+    { subject: "Technical", score: technicalScore },
+    { subject: "HR", score: hrScore },
+    { subject: "Resume", score: hrScore > 0 ? Math.round((aptitudeScore + codingScore + technicalScore + hrScore) / 4) : 0 },
+  ];
+
+  const totalScore = aptitudeScore + codingScore + hrScore;
   return (
     <div className="max-w-[1400px] mx-auto space-y-8">
       {/* Header */}

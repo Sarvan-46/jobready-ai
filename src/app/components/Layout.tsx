@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation } from "react-router";
+import { Outlet, Link, useLocation, useNavigate } from "react-router";
 import {
   LayoutDashboard,
   Brain,
@@ -16,7 +16,8 @@ import {
   LogOut,
   Sparkles,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuth } from "../AuthContext";
 
 const navItems = [
   { path: "/", icon: LayoutDashboard, label: "Dashboard" },
@@ -31,7 +32,32 @@ const navItems = [
 
 export function Layout() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { currentUser, loading, logout } = useAuth();
   const [showUserMenu, setShowUserMenu] = useState(false);
+
+  useEffect(() => {
+    if (!loading && !currentUser) {
+      navigate("/login");
+    }
+  }, [currentUser, loading, navigate]);
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login");
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#0F172A] flex items-center justify-center text-white">
+        Loading JobReady AI...
+      </div>
+    );
+  }
+
+  if (!currentUser) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-[#0F172A] flex">
@@ -116,7 +142,9 @@ export function Layout() {
                     <User className="w-5 h-5 text-white" />
                   </div>
                   <div className="text-left hidden lg:block">
-                    <p className="text-sm text-white">Sarah Johnson</p>
+                    <p className="text-sm text-white">
+                      {currentUser.email?.split("@")[0] ?? "Student"}
+                    </p>
                     <p className="text-xs text-[#64748B]">Free Plan</p>
                   </div>
                 </button>
@@ -124,9 +152,11 @@ export function Layout() {
                 {showUserMenu && (
                   <div className="absolute right-0 mt-2 w-56 bg-[#1E293B] border border-[#334155] rounded-lg shadow-xl overflow-hidden">
                     <div className="p-4 border-b border-[#334155]">
-                      <p className="text-sm text-white">Sarah Johnson</p>
+                      <p className="text-sm text-white">
+                        {currentUser.email?.split("@")[0] ?? "Student"}
+                      </p>
                       <p className="text-xs text-[#64748B]">
-                        sarah.j@example.com
+                        {currentUser.email}
                       </p>
                     </div>
                     <div className="p-2">
@@ -140,13 +170,14 @@ export function Layout() {
                       </button>
                     </div>
                     <div className="p-2 border-t border-[#334155]">
-                      <Link
-                        to="/login"
+                      <button
+                        type="button"
+                        onClick={handleLogout}
                         className="w-full flex items-center gap-3 px-3 py-2 text-[#EF4444] hover:bg-[#0F172A] rounded-lg transition-all"
                       >
                         <LogOut className="w-4 h-4" />
                         <span className="text-sm">Logout</span>
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 )}
