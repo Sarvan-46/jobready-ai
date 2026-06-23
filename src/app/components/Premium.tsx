@@ -159,7 +159,7 @@ export function Premium() {
         <h1 className="text-5xl mb-4 text-white">
           Invest in Your Career Success
         </h1>
-        <p className="text-xl text-[#94A3B8] max-w-2xl mx-auto">
+        <p className="text-xl text-slate-500 max-w-2xl mx-auto">
           Join 50,000+ students who landed their dream jobs with JobReady AI
         </p>
       </div>
@@ -169,10 +169,10 @@ export function Premium() {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 text-center"
+            className="bg-white border border-slate-200 rounded-2xl p-6 text-center"
           >
-            <p className="text-3xl mb-2 text-white">{stat.value}</p>
-            <p className="text-sm text-[#94A3B8]">{stat.label}</p>
+            <p className="text-3xl mb-2 text-slate-900">{stat.value}</p>
+            <p className="text-sm text-slate-500">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -182,10 +182,10 @@ export function Premium() {
         {plans.map((plan) => (
           <div
             key={plan.name}
-            className={`relative bg-[#1E293B] border-2 rounded-2xl p-8 ${
+            className={`relative bg-slate-50 border-2 rounded-2xl p-8 ${
               plan.popular
                 ? "border-[#2563EB] shadow-xl shadow-[#2563EB]/20 scale-105"
-                : "border-[#334155]"
+                : "border-slate-200"
             }`}
           >
             {plan.popular && (
@@ -196,11 +196,11 @@ export function Premium() {
               </div>
             )}
             <div className="text-center mb-8">
-              <h3 className="text-2xl mb-2 text-white">{plan.name}</h3>
-              <p className="text-[#94A3B8] mb-4">{plan.description}</p>
+              <h3 className="text-2xl mb-2 text-slate-900">{plan.name}</h3>
+              <p className="text-slate-500 mb-4">{plan.description}</p>
               <div className="mb-2">
-                <span className="text-5xl text-white">{plan.price}</span>
-                <span className="text-[#94A3B8] ml-2">/ {plan.period}</span>
+                <span className="text-5xl text-slate-900">{plan.price}</span>
+                <span className="text-slate-500 ml-2">/ {plan.period}</span>
               </div>
             </div>
 
@@ -209,7 +209,7 @@ export function Premium() {
                 plan.popular
                   ? "bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white hover:shadow-lg hover:shadow-[#2563EB]/50"
                   : plan.name === "Free"
-                  ? "bg-[#334155] text-[#94A3B8] cursor-not-allowed"
+                  ? "bg-[#334155] text-slate-500 cursor-not-allowed"
                   : "bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white hover:shadow-lg hover:shadow-[#F59E0B]/50"
               }`}
               disabled={plan.name === "Free"}
@@ -218,11 +218,11 @@ export function Premium() {
             </button>
 
             <div className="space-y-4">
-              <p className="text-sm text-[#94A3B8]">What's included:</p>
+              <p className="text-sm text-slate-500">What's included:</p>
               {plan.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-[#10B981] flex-shrink-0 mt-0.5" />
-                  <span className="text-white">{feature}</span>
+                  <span className="text-slate-900">{feature}</span>
                 </div>
               ))}
               {plan.limitations.map((limitation, index) => (
@@ -230,7 +230,7 @@ export function Premium() {
                   <div className="w-5 h-5 flex-shrink-0 mt-0.5">
                     <div className="w-4 h-4 border-2 border-[#334155] rounded-full"></div>
                   </div>
-                  <span className="text-[#64748B] line-through">
+                  <span className="text-slate-500 line-through">
                     {limitation}
                   </span>
                 </div>
@@ -242,16 +242,16 @@ export function Premium() {
 
       {/* Features Grid */}
       <div>
-        <h2 className="text-3xl text-center mb-12 text-white">
+        <h3 className="text-xl text-center mb-12 text-slate-900">
           Why Choose JobReady AI Pro?
-        </h2>
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.title}
-                className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 hover:border-[#2563EB] transition-all"
+                className="bg-white border border-slate-200 rounded-2xl p-6 hover:border-[#2563EB] transition-all"
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
@@ -259,8 +259,8 @@ export function Premium() {
                 >
                   <Icon className="w-6 h-6" style={{ color: feature.color }} />
                 </div>
-                <h3 className="text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-[#94A3B8]">{feature.description}</p>
+                <h3 className="text-slate-900 mb-2">{feature.title}</h3>
+                <p className="text-sm text-slate-500">{feature.description}</p>
               </div>
             );
           })}
@@ -269,7 +269,7 @@ export function Premium() {
 
       {/* Testimonials */}
       <div className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] rounded-2xl p-8">
-        <h2 className="text-3xl text-center mb-12 text-white">
+        <h2 className="text-3xl text-center mb-12 text-slate-900">
           Success Stories
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -302,17 +302,17 @@ export function Premium() {
 
       {/* FAQ */}
       <div>
-        <h2 className="text-3xl text-center mb-12 text-white">
+        <h2 className="text-3xl text-center mb-12 text-slate-900">
           Frequently Asked Questions
         </h2>
         <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-[#1E293B] border border-[#334155] rounded-xl p-6"
+              className="bg-white border border-slate-200 rounded-2xl p-6"
             >
-              <h4 className="text-white mb-3">{faq.question}</h4>
-              <p className="text-[#94A3B8]">{faq.answer}</p>
+              <h4 className="text-slate-900 mb-3">{faq.question}</h4>
+              <p className="text-slate-500">{faq.answer}</p>
             </div>
           ))}
         </div>

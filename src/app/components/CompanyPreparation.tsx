@@ -165,64 +165,64 @@ export function CompanyPreparation() {
     <div className="max-w-[1400px] mx-auto space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl mb-2 text-white">Company Preparation</h1>
-        <p className="text-[#94A3B8]">
+        <h1 className="text-3xl mb-2 text-slate-900">Company Preparation</h1>
+        <p className="text-slate-500">
           Prepare for top companies with curated questions and insights
         </p>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
           <div className="w-12 h-12 bg-[#2563EB]/20 rounded-xl flex items-center justify-center mb-4">
             <Building2 className="w-6 h-6 text-[#2563EB]" />
           </div>
-          <p className="text-2xl mb-1 text-white">150+</p>
-          <p className="text-sm text-[#94A3B8]">Companies</p>
+          <p className="text-2xl mb-1 text-slate-900">150+</p>
+          <p className="text-sm text-slate-500">Companies</p>
         </div>
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
           <div className="w-12 h-12 bg-[#10B981]/20 rounded-xl flex items-center justify-center mb-4">
             <Target className="w-6 h-6 text-[#10B981]" />
           </div>
-          <p className="text-2xl mb-1 text-white">5,000+</p>
-          <p className="text-sm text-[#94A3B8]">Interview Questions</p>
+          <p className="text-2xl mb-1 text-slate-900">5,000+</p>
+          <p className="text-sm text-slate-500">Interview Questions</p>
         </div>
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
           <div className="w-12 h-12 bg-[#F59E0B]/20 rounded-xl flex items-center justify-center mb-4">
             <Users className="w-6 h-6 text-[#F59E0B]" />
           </div>
-          <p className="text-2xl mb-1 text-white">12,500</p>
-          <p className="text-sm text-[#94A3B8]">Interview Experiences</p>
+          <p className="text-2xl mb-1 text-slate-900">12,500</p>
+          <p className="text-sm text-slate-500">Interview Experiences</p>
         </div>
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
           <div className="w-12 h-12 bg-[#8B5CF6]/20 rounded-xl flex items-center justify-center mb-4">
             <Briefcase className="w-6 h-6 text-[#8B5CF6]" />
           </div>
-          <p className="text-2xl mb-1 text-white">8,900</p>
-          <p className="text-sm text-[#94A3B8]">Active Openings</p>
+          <p className="text-2xl mb-1 text-slate-900">8,900</p>
+          <p className="text-sm text-slate-500">Active Openings</p>
         </div>
       </div>
 
       {/* Search */}
       <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#64748B]" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
         <input
           type="text"
           placeholder="Search companies..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full bg-[#1E293B] border border-[#334155] rounded-lg pl-12 pr-4 py-4 text-white placeholder:text-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
+          className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-12 pr-4 py-4 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent"
         />
       </div>
 
       {/* Companies Grid */}
       <div>
-        <h2 className="text-xl text-white mb-6">Top Companies</h2>
+        <h2 className="text-xl text-slate-900 mb-6">Top Companies</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {companies.map((company) => (
             <div
               key={company.name}
-              className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 hover:border-[#2563EB] transition-all cursor-pointer group"
+              className="bg-white border border-slate-200 rounded-2xl p-6 hover:border-[#2563EB] transition-all cursor-pointer group"
               onClick={() => setSelectedCompany(company.name)}
             >
               <div className="flex items-start justify-between mb-4">
@@ -241,24 +241,24 @@ export function CompanyPreparation() {
                   {company.difficulty}
                 </span>
               </div>
-              <h3 className="text-white mb-2">{company.name}</h3>
-              <p className="text-sm text-[#94A3B8] mb-4">{company.category}</p>
+              <h3 className="text-slate-900 mb-2">{company.name}</h3>
+              <p className="text-sm text-slate-500 mb-4">{company.category}</p>
               <div className="space-y-2 text-sm mb-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[#94A3B8]">Questions</span>
-                  <span className="text-white">{company.questions}</span>
+                  <span className="text-slate-500">Questions</span>
+                  <span className="text-slate-900">{company.questions}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[#94A3B8]">Openings</span>
-                  <span className="text-white">{company.openings}</span>
+                  <span className="text-slate-500">Openings</span>
+                  <span className="text-slate-900">{company.openings}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[#94A3B8]">Salary</span>
-                  <span className="text-white">{company.salary}</span>
+                  <span className="text-slate-500">Salary</span>
+                  <span className="text-slate-900">{company.salary}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[#94A3B8]">Rating</span>
-                  <span className="flex items-center gap-1 text-white">
+                  <span className="text-slate-500">Rating</span>
+                  <span className="flex items-center gap-1 text-slate-900">
                     <Star className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]" />
                     {company.rating}
                   </span>
@@ -273,8 +273,8 @@ export function CompanyPreparation() {
       </div>
 
       {/* Interview Process */}
-      <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
-        <h2 className="text-xl text-white mb-6">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6">
+        <h2 className="text-xl text-slate-900 mb-6">
           Typical Interview Process (FAANG)
         </h2>
         <div className="space-y-4">
@@ -285,13 +285,13 @@ export function CompanyPreparation() {
                   {index + 1}
                 </div>
                 {index < interviewProcess.length - 1 && (
-                  <div className="w-0.5 h-12 bg-[#334155] my-2"></div>
+                  <div className="w-0.5 h-12 bg-slate-200 my-2"></div>
                 )}
               </div>
-              <div className="flex-1 bg-[#0F172A] rounded-lg p-4">
+              <div className="flex-1 bg-slate-50 rounded-lg p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-white">{stage.stage}</h4>
-                  <span className="text-sm text-[#94A3B8]">{stage.duration}</span>
+                  <h4 className="text-slate-900">{stage.stage}</h4>
+                  <span className="text-sm text-slate-500">{stage.duration}</span>
                 </div>
                 <div className="flex gap-2">
                   {stage.topics.map((topic, i) => (
@@ -310,16 +310,16 @@ export function CompanyPreparation() {
       </div>
 
       {/* Topics Covered */}
-      <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
-        <h2 className="text-xl text-white mb-6">Topics Covered</h2>
+      <div className="bg-white border border-slate-200 rounded-2xl p-6">
+        <h2 className="text-xl text-slate-900 mb-6">Topics Covered</h2>
         <div className="space-y-4">
           {topicsCovered.map((topic) => (
             <div key={topic.name}>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-white">{topic.name}</span>
-                <span className="text-[#94A3B8]">{topic.count} questions</span>
+                <span className="text-slate-900">{topic.name}</span>
+                <span className="text-slate-500">{topic.count} questions</span>
               </div>
-              <div className="w-full bg-[#0F172A] rounded-full h-2">
+              <div className="w-full bg-slate-200 rounded-full h-2">
                 <div
                   className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] h-2 rounded-full"
                   style={{ width: `${(topic.count / 200) * 100}%` }}
@@ -331,9 +331,9 @@ export function CompanyPreparation() {
       </div>
 
       {/* Recent Interview Experiences */}
-      <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl text-white">Recent Interview Experiences</h2>
+          <h2 className="text-xl text-slate-900">Recent Interview Experiences</h2>
           <button className="flex items-center gap-2 text-[#2563EB] hover:text-[#3B82F6] transition-colors">
             View All
             <ExternalLink className="w-4 h-4" />
@@ -343,14 +343,14 @@ export function CompanyPreparation() {
           {recentExperiences.map((experience, index) => (
             <div
               key={index}
-              className="bg-[#0F172A] rounded-lg p-5 hover:bg-[#1E293B] transition-colors"
+              className="bg-slate-50 rounded-lg p-5 hover:bg-slate-100 transition-colors"
             >
               <div className="flex items-center justify-between mb-3">
                 <div>
-                  <h4 className="text-white mb-1">
+                  <h4 className="text-slate-900 mb-1">
                     {experience.company} - {experience.role}
                   </h4>
-                  <p className="text-sm text-[#94A3B8]">{experience.date}</p>
+                  <p className="text-sm text-slate-500">{experience.date}</p>
                 </div>
                 <span
                   className={`px-3 py-1 rounded text-sm ${
@@ -362,7 +362,7 @@ export function CompanyPreparation() {
                   {experience.result}
                 </span>
               </div>
-              <div className="flex items-center gap-4 text-sm text-[#94A3B8]">
+              <div className="flex items-center gap-4 text-sm text-slate-500">
                 <span>{experience.rounds} rounds</span>
                 <span>•</span>
                 <span

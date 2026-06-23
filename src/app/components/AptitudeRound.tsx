@@ -164,32 +164,32 @@ export function AptitudeRound() {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-3 min-w-[220px]">
-            <div className="bg-white/10 rounded-xl p-4">
-              <p className="text-2xl text-white">{answeredCount}/10</p>
-              <p className="text-sm text-blue-100">Answered</p>
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-2xl text-slate-900">{answeredCount}/10</p>
+              <p className="text-sm text-slate-500">Answered</p>
             </div>
-            <div className="bg-white/10 rounded-xl p-4">
-              <p className="text-2xl text-white">{currentQuestion + 1}/10</p>
-              <p className="text-sm text-blue-100">Question</p>
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-2xl text-slate-900">{currentQuestion + 1}/10</p>
+              <p className="text-sm text-slate-500">Question</p>
             </div>
           </div>
         </div>
       </div>
 
       {isSubmitted ? (
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-8">
+        <div className="bg-white border border-slate-200 rounded-2xl p-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 bg-[#10B981]/20 rounded-xl flex items-center justify-center">
                 <Trophy className="w-8 h-8 text-[#10B981]" />
               </div>
               <div>
-                <h2 className="text-2xl text-white mb-1">Test Submitted</h2>
-                <p className="text-[#94A3B8]">
+                <h2 className="text-2xl text-slate-900 mb-1">Test Submitted</h2>
+                <p className="text-slate-500">
                   Your final score has been calculated.
                 </p>
                 {saveStatus && (
-                  <p className="text-sm text-[#94A3B8] mt-2">{saveStatus}</p>
+                  <p className="text-sm text-slate-500 mt-2">{saveStatus}</p>
                 )}
               </div>
             </div>
@@ -203,19 +203,19 @@ export function AptitudeRound() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div className="bg-[#0F172A] rounded-xl p-5">
-              <p className="text-sm text-[#94A3B8] mb-2">Score</p>
-              <p className="text-3xl text-white">
+            <div className="bg-slate-50 rounded-2xl p-5">
+              <p className="text-sm text-slate-500 mb-2">Score</p>
+              <p className="text-3xl text-slate-900">
                 {score}/{questions.length}
               </p>
             </div>
-            <div className="bg-[#0F172A] rounded-xl p-5">
-              <p className="text-sm text-[#94A3B8] mb-2">Percentage</p>
-              <p className="text-3xl text-white">{percentage}%</p>
+            <div className="bg-slate-50 rounded-2xl p-5">
+              <p className="text-sm text-slate-500 mb-2">Percentage</p>
+              <p className="text-3xl text-slate-900">{percentage}%</p>
             </div>
-            <div className="bg-[#0F172A] rounded-xl p-5">
-              <p className="text-sm text-[#94A3B8] mb-2">Attempted</p>
-              <p className="text-3xl text-white">
+            <div className="bg-slate-50 rounded-2xl p-5">
+              <p className="text-sm text-slate-500 mb-2">Attempted</p>
+              <p className="text-3xl text-slate-900">
                 {answeredCount}/{questions.length}
               </p>
             </div>
@@ -229,14 +229,14 @@ export function AptitudeRound() {
               return (
                 <div
                   key={testQuestion.question}
-                  className="bg-[#0F172A] border border-[#334155] rounded-xl p-4"
+                  className="bg-slate-50 border border-slate-200 rounded-2xl p-4"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
                     <div>
                       <p className="text-white mb-2">
                         {index + 1}. {testQuestion.question}
                       </p>
-                      <p className="text-sm text-[#94A3B8]">
+                      <p className="text-sm text-slate-500">
                         Your answer:{" "}
                         <span
                           className={
@@ -272,22 +272,18 @@ export function AptitudeRound() {
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6">
-          <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 md:p-8">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
             <div className="flex items-center justify-between gap-4 mb-6">
               <div>
-                <p className="text-sm text-[#94A3B8] mb-2">
+                <p className="text-sm text-slate-500 mb-2">
                   Question {currentQuestion + 1} of {questions.length}
                 </p>
-                <h2 className="text-2xl text-white leading-snug">
-                  {question.question}
-                </h2>
-              </div>
-              <div className="hidden sm:flex w-12 h-12 bg-[#2563EB]/20 rounded-xl items-center justify-center shrink-0">
-                <ClipboardCheck className="w-6 h-6 text-[#2563EB]" />
+                  <h2 className="text-2xl text-slate-900 leading-snug">
+                    </h2>
               </div>
             </div>
 
-            <div className="w-full bg-[#0F172A] rounded-full h-2 mb-8">
+            <div className="w-full bg-slate-200 rounded-full h-2 mb-8">
               <div
                 className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] h-2 rounded-full transition-all"
                 style={{
@@ -307,14 +303,14 @@ export function AptitudeRound() {
                     className={`w-full flex items-center gap-4 rounded-xl border p-4 text-left transition-all ${
                       isSelected
                         ? "bg-[#2563EB] border-[#2563EB] text-white"
-                        : "bg-[#0F172A] border-[#334155] text-[#CBD5E1] hover:border-[#2563EB] hover:text-white"
+                        : "bg-slate-50 border border-slate-200 text-slate-900 hover:border-[#2563EB] hover:text-slate-900"
                     }`}
                   >
                     <span
                       className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
                         isSelected
-                          ? "bg-white/20 text-white"
-                          : "bg-[#1E293B] text-[#94A3B8]"
+                          ? "bg-white/20 text-[#0F172A]"
+                          : "bg-slate-200 text-slate-500"
                       }`}
                     >
                       {String.fromCharCode(65 + index)}
@@ -332,7 +328,7 @@ export function AptitudeRound() {
               <button
                 onClick={goToPrevious}
                 disabled={currentQuestion === 0}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0F172A] border border-[#334155] text-white rounded-lg hover:border-[#2563EB] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-50 border border-slate-200 text-slate-900 rounded-lg hover:border-[#2563EB] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Previous
@@ -360,7 +356,7 @@ export function AptitudeRound() {
             </div>
           </div>
 
-          <aside className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 h-fit">
+          <aside className="bg-white border border-slate-200 rounded-2xl p-6 h-fit">
             <h3 className="text-white mb-4">Question Map</h3>
             <div className="grid grid-cols-5 gap-2 mb-6">
               {questions.map((_, index) => {
@@ -376,7 +372,7 @@ export function AptitudeRound() {
                         ? "bg-[#2563EB] text-white"
                         : isAnswered
                         ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/40"
-                        : "bg-[#0F172A] text-[#94A3B8] border border-[#334155] hover:border-[#2563EB]"
+                        : "bg-slate-50 text-slate-900 border border-slate-200 hover:border-[#2563EB]"
                     }`}
                   >
                     {index + 1}
@@ -386,19 +382,19 @@ export function AptitudeRound() {
             </div>
 
             <div className="space-y-3 text-sm">
-              <div className="flex items-center justify-between text-[#94A3B8]">
+              <div className="flex items-center justify-between text-slate-500">
                 <span>Answered</span>
-                <span className="text-white">{answeredCount}</span>
+                <span className="text-slate-900">{answeredCount}</span>
               </div>
-              <div className="flex items-center justify-between text-[#94A3B8]">
+              <div className="flex items-center justify-between text-slate-500">
                 <span>Remaining</span>
-                <span className="text-white">
+                <span className="text-slate-900">
                   {questions.length - answeredCount}
                 </span>
               </div>
-              <div className="flex items-center justify-between text-[#94A3B8]">
+              <div className="flex items-center justify-between text-slate-500">
                 <span>Total Questions</span>
-                <span className="text-white">{questions.length}</span>
+                <span className="text-slate-900">{questions.length}</span>
               </div>
             </div>
 

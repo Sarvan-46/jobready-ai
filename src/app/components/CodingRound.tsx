@@ -133,17 +133,17 @@ export function CodingRound() {
             </p>
           </div>
           <div className="grid grid-cols-3 gap-3 min-w-[280px]">
-            <div className="bg-white/10 rounded-xl p-4">
-              <p className="text-2xl text-white">{score}%</p>
-              <p className="text-sm text-blue-100">Score</p>
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-2xl text-slate-900">{score}%</p>
+              <p className="text-sm text-slate-500">Score</p>
             </div>
-            <div className="bg-white/10 rounded-xl p-4">
-              <p className="text-2xl text-white">{passedCount}/3</p>
-              <p className="text-sm text-blue-100">Passed</p>
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-2xl text-slate-900">{passedCount}/3</p>
+              <p className="text-sm text-slate-500">Passed</p>
             </div>
-            <div className="bg-white/10 rounded-xl p-4">
-              <p className="text-2xl text-white">35m</p>
-              <p className="text-sm text-blue-100">Timer</p>
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-2xl text-slate-900">35m</p>
+              <p className="text-sm text-slate-500">Timer</p>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@ export function CodingRound() {
 
       <div className="grid grid-cols-1 xl:grid-cols-[0.9fr_1.1fr] gap-6">
         <div className="space-y-6">
-          <section className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+          <section className="bg-white border border-slate-200 rounded-2xl p-6">
             <div className="flex items-start justify-between gap-4 mb-5">
               <div>
                 <div className="flex items-center gap-2 mb-3">
@@ -162,10 +162,10 @@ export function CodingRound() {
                     Arrays
                   </span>
                 </div>
-                <h2 className="text-2xl text-white mb-2">
+                <h2 className="text-2xl text-slate-900 mb-2">
                   Best Time to Buy and Sell Stock
                 </h2>
-                <p className="text-[#94A3B8]">
+                <p className="text-slate-500">
                   Given an array where each value is the price of a stock on a
                   given day, choose one day to buy and a later day to sell.
                   Return the maximum profit possible. Return 0 if no profit can
@@ -178,51 +178,51 @@ export function CodingRound() {
             </div>
 
             <div className="space-y-4">
-              <div className="bg-[#0F172A] border border-[#334155] rounded-xl p-4">
-                <p className="text-sm text-[#94A3B8] mb-2">Example</p>
-                <pre className="text-sm text-[#CBD5E1] whitespace-pre-wrap font-mono">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                <p className="text-sm text-slate-500 mb-2">Example</p>
+                <pre className="text-sm text-slate-500 whitespace-pre-wrap font-mono">
 {`Input: prices = [7, 1, 5, 3, 6, 4]
 Output: 5
 Explanation: Buy at 1 and sell at 6.`}
                 </pre>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="bg-[#0F172A] rounded-xl p-4">
+                <div className="bg-slate-50 rounded-xl p-4">
                   <Target className="w-5 h-5 text-[#2563EB] mb-2" />
-                  <p className="text-sm text-[#94A3B8]">Goal</p>
-                  <p className="text-white">Max profit</p>
+                  <p className="text-sm text-slate-500">Goal</p>
+                  <p className="text-slate-900">Max profit</p>
                 </div>
-                <div className="bg-[#0F172A] rounded-xl p-4">
+                <div className="bg-slate-50 rounded-xl p-4">
                   <Clock className="w-5 h-5 text-[#F59E0B] mb-2" />
-                  <p className="text-sm text-[#94A3B8]">Time Limit</p>
-                  <p className="text-white">1 second</p>
+                  <p className="text-sm text-slate-500">Time Limit</p>
+                  <p className="text-slate-900">1 second</p>
                 </div>
-                <div className="bg-[#0F172A] rounded-xl p-4">
+                <div className="bg-slate-50 rounded-xl p-4">
                   <Trophy className="w-5 h-5 text-[#10B981] mb-2" />
-                  <p className="text-sm text-[#94A3B8]">Points</p>
-                  <p className="text-white">100</p>
+                  <p className="text-sm text-slate-500">Points</p>
+                  <p className="text-slate-900">100</p>
                 </div>
               </div>
             </div>
           </section>
 
-          <section className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
-            <h2 className="text-xl text-white mb-4">Test Cases</h2>
+          <section className="bg-white border border-slate-200 rounded-2xl p-6">
+            <h2 className="text-xl text-slate-900 mb-4">Test Cases</h2>
             <div className="space-y-3">
               {testCases.map((test) => (
                 <div
                   key={test.id}
-                  className="bg-[#0F172A] border border-[#334155] rounded-xl p-4"
+                  className="bg-slate-50 border border-slate-200 rounded-2xl p-4"
                 >
                   <div className="flex items-center justify-between gap-3 mb-3">
-                    <p className="text-white">Case {test.id}</p>
+                    <p className="text-slate-900">Case {test.id}</p>
                     <span
                       className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs ${
                         test.status === "passed"
                           ? "bg-[#10B981]/20 text-[#10B981]"
                           : test.status === "failed"
                           ? "bg-[#EF4444]/20 text-[#EF4444]"
-                          : "bg-[#334155] text-[#94A3B8]"
+                          : "bg-slate-100 text-slate-500"
                       }`}
                     >
                       {test.status === "passed" && (
@@ -233,12 +233,12 @@ Explanation: Buy at 1 and sell at 6.`}
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                     <div>
-                      <p className="text-[#64748B] mb-1">Input</p>
-                      <p className="text-[#CBD5E1] font-mono">{test.input}</p>
+                      <p className="text-slate-500 mb-1">Input</p>
+                      <p className="text-slate-500 font-mono">{test.input}</p>
                     </div>
                     <div>
-                      <p className="text-[#64748B] mb-1">Expected</p>
-                      <p className="text-[#CBD5E1] font-mono">
+                      <p className="text-slate-500 mb-1">Expected</p>
+                      <p className="text-slate-500 font-mono">
                         {test.expected}
                       </p>
                     </div>
@@ -250,19 +250,19 @@ Explanation: Buy at 1 and sell at 6.`}
         </div>
 
         <div className="space-y-6">
-          <section className="bg-[#1E293B] border border-[#334155] rounded-xl overflow-hidden">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-6 py-4 border-b border-[#334155] bg-[#0F172A]">
+          <section className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-6 py-4 border-b border-slate-200 bg-slate-50">
               <div className="flex items-center gap-3">
                 <Terminal className="w-5 h-5 text-[#60A5FA]" />
                 <div>
-                  <h2 className="text-white">Code Editor</h2>
-                  <p className="text-sm text-[#94A3B8]">JavaScript</p>
+                  <h2 className="text-slate-900">Code Editor</h2>
+                  <p className="text-sm text-slate-500">JavaScript</p>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={runCode}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#1E293B] border border-[#334155] text-white rounded-lg hover:border-[#2563EB] transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-50 border border-slate-200 text-slate-900 rounded-lg hover:border-[#2563EB] transition-all"
                 >
                   <Play className="w-4 h-4" />
                   Run Code
@@ -280,25 +280,25 @@ Explanation: Buy at 1 and sell at 6.`}
               value={code}
               onChange={(event) => setCode(event.target.value)}
               spellCheck={false}
-              className="w-full min-h-[460px] bg-[#020617] text-[#E2E8F0] p-6 font-mono text-sm leading-7 outline-none resize-y border-0"
+              className="w-full min-h-[460px] bg-slate-50 text-slate-900 p-6 font-mono text-sm leading-7 outline-none resize-y border border-slate-200 rounded-2xl"
             />
           </section>
 
-          <section className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+          <section className="bg-white border border-slate-200 rounded-2xl p-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 mb-6">
               <div>
-                <h2 className="text-xl text-white mb-2">Score Section</h2>
-                <p className="text-[#94A3B8]">{scoreMessage}</p>
+                <h2 className="text-xl text-slate-900 mb-2">Score Section</h2>
+                <p className="text-slate-500">{scoreMessage}</p>
                 {saveStatus && (
-                  <p className="text-sm text-[#94A3B8] mt-2">{saveStatus}</p>
+                  <p className="text-sm text-slate-500 mt-2">{saveStatus}</p>
                 )}
               </div>
-              <div className="w-24 h-24 rounded-full bg-[#0F172A] border border-[#334155] flex items-center justify-center shrink-0">
-                <span className="text-2xl text-white">{score}%</span>
+              <div className="w-24 h-24 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0">
+                <span className="text-2xl text-slate-900">{score}%</span>
               </div>
             </div>
 
-            <div className="w-full bg-[#0F172A] rounded-full h-3 mb-6">
+            <div className="w-full bg-slate-200 rounded-full h-3 mb-6">
               <div
                 className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] h-3 rounded-full transition-all"
                 style={{ width: `${score}%` }}
@@ -306,19 +306,19 @@ Explanation: Buy at 1 and sell at 6.`}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="bg-[#0F172A] rounded-xl p-4">
-                <p className="text-sm text-[#94A3B8] mb-1">Visible Tests</p>
-                <p className="text-2xl text-white">{passedCount}/3</p>
+              <div className="bg-slate-50 rounded-xl p-4">
+                <p className="text-sm text-slate-500 mb-1">Visible Tests</p>
+                <p className="text-2xl text-slate-900">{passedCount}/3</p>
               </div>
-              <div className="bg-[#0F172A] rounded-xl p-4">
-                <p className="text-sm text-[#94A3B8] mb-1">Runtime</p>
-                <p className="text-2xl text-white">
+              <div className="bg-slate-50 rounded-xl p-4">
+                <p className="text-sm text-slate-500 mb-1">Runtime</p>
+                <p className="text-2xl text-slate-900">
                   {hasRunCode ? "46ms" : "--"}
                 </p>
               </div>
-              <div className="bg-[#0F172A] rounded-xl p-4">
-                <p className="text-sm text-[#94A3B8] mb-1">Memory</p>
-                <p className="text-2xl text-white">
+              <div className="bg-slate-50 rounded-xl p-4">
+                <p className="text-sm text-slate-500 mb-1">Memory</p>
+                <p className="text-2xl text-slate-900">
                   {hasRunCode ? "41MB" : "--"}
                 </p>
               </div>

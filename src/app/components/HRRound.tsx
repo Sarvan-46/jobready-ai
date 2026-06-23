@@ -219,36 +219,36 @@ export function HRRound() {
 
   return (
     <div className="max-w-[1200px] mx-auto space-y-8">
-      <div className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] rounded-2xl p-8 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
+      <div className="bg-slate-50 rounded-2xl p-8 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-72 h-72 bg-white/70 rounded-full blur-3xl" />
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                <Briefcase className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-[#2563EB]/10 rounded-xl flex items-center justify-center">
+                <Briefcase className="w-6 h-6 text-[#2563EB]" />
               </div>
-              <span className="text-sm text-blue-100">JobReady AI</span>
+              <span className="text-sm text-slate-500">JobReady AI</span>
             </div>
-            <h1 className="text-3xl mb-2 text-white">
+            <h1 className="text-3xl mb-2 text-slate-900">
               AI HR Interview Simulator
             </h1>
-            <p className="text-blue-100 max-w-2xl">
+            <p className="text-slate-500 max-w-2xl">
               Practice 10 HR interview questions, write full answers, and get a
               scored strengths and weaknesses review.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-3 min-w-[280px]">
-            <div className="bg-white/10 rounded-xl p-4">
-              <p className="text-2xl text-white">{answeredCount}/10</p>
-              <p className="text-sm text-blue-100">Answered</p>
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-2xl text-slate-900">{answeredCount}/10</p>
+              <p className="text-sm text-slate-500">Answered</p>
             </div>
-            <div className="bg-white/10 rounded-xl p-4">
-              <p className="text-2xl text-white">{currentQuestion + 1}/10</p>
-              <p className="text-sm text-blue-100">Question</p>
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-2xl text-slate-900">{currentQuestion + 1}/10</p>
+              <p className="text-sm text-slate-500">Question</p>
             </div>
-            <div className="bg-white/10 rounded-xl p-4">
-              <p className="text-2xl text-white">{isSubmitted ? finalScore : 0}%</p>
-              <p className="text-sm text-blue-100">Score</p>
+            <div className="bg-slate-50 rounded-xl p-4">
+              <p className="text-2xl text-slate-900">{isSubmitted ? finalScore : 0}%</p>
+              <p className="text-sm text-slate-500">Score</p>
             </div>
           </div>
         </div>
@@ -256,27 +256,27 @@ export function HRRound() {
 
       {isSubmitted ? (
         <div className="space-y-6">
-          <section className="bg-[#1E293B] border border-[#334155] rounded-xl p-8">
+          <section className="bg-white border border-slate-200 rounded-2xl p-8">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 bg-[#10B981]/20 rounded-xl flex items-center justify-center">
                   <Trophy className="w-8 h-8 text-[#10B981]" />
                 </div>
                 <div>
-                  <h2 className="text-2xl text-white mb-1">
+                  <h2 className="text-2xl text-slate-900 mb-1">
                     Interview Submitted
                   </h2>
-                  <p className="text-[#94A3B8]">
+                  <p className="text-slate-500">
                     Your AI-style HR readiness score and feedback are ready.
                   </p>
                   {saveStatus && (
-                    <p className="text-sm text-[#94A3B8] mt-2">{saveStatus}</p>
+                    <p className="text-sm text-slate-500 mt-2">{saveStatus}</p>
                   )}
                 </div>
               </div>
               <button
                 onClick={resetInterview}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0F172A] border border-[#334155] text-white rounded-lg hover:border-[#2563EB] transition-all"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-50 border border-slate-200 text-slate-900 rounded-lg hover:border-[#2563EB] transition-all"
               >
                 <RotateCcw className="w-4 h-4" />
                 Retake Interview
@@ -284,26 +284,26 @@ export function HRRound() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-[#0F172A] rounded-xl p-5">
+              <div className="bg-slate-50 rounded-2xl p-5">
                 <Target className="w-6 h-6 text-[#2563EB] mb-3" />
-                <p className="text-sm text-[#94A3B8] mb-2">Final Score</p>
-                <p className="text-4xl text-white">{finalScore}%</p>
+                <p className="text-sm text-slate-500 mb-2">Final Score</p>
+                <p className="text-4xl text-slate-900">{finalScore}%</p>
               </div>
-              <div className="bg-[#0F172A] rounded-xl p-5">
+              <div className="bg-slate-50 rounded-2xl p-5">
                 <CheckCircle2 className="w-6 h-6 text-[#10B981] mb-3" />
-                <p className="text-sm text-[#94A3B8] mb-2">Completed</p>
-                <p className="text-4xl text-white">{answeredCount}/10</p>
+                <p className="text-sm text-slate-500 mb-2">Completed</p>
+                <p className="text-4xl text-slate-900">{answeredCount}/10</p>
               </div>
-              <div className="bg-[#0F172A] rounded-xl p-5">
+              <div className="bg-slate-50 rounded-2xl p-5">
                 <TrendingUp className="w-6 h-6 text-[#F59E0B] mb-3" />
-                <p className="text-sm text-[#94A3B8] mb-2">Readiness</p>
-                <p className="text-4xl text-white">
+                <p className="text-sm text-slate-500 mb-2">Readiness</p>
+                <p className="text-4xl text-slate-900">
                   {finalScore >= 80 ? "High" : finalScore >= 60 ? "Good" : "Build"}
                 </p>
               </div>
             </div>
 
-            <div className="w-full bg-[#0F172A] rounded-full h-3">
+            <div className="bg-slate-200 rounded-full h-3">
               <div
                 className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] h-3 rounded-full transition-all"
                 style={{ width: `${finalScore}%` }}
@@ -312,49 +312,49 @@ export function HRRound() {
           </section>
 
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 bg-[#10B981]/20 rounded-lg flex items-center justify-center">
                   <Sparkles className="w-5 h-5 text-[#10B981]" />
                 </div>
-                <h2 className="text-xl text-white">Strengths</h2>
+                <h2 className="text-xl text-slate-900">Strengths</h2>
               </div>
               <div className="space-y-3">
                 {strengths.map((strength) => (
                   <div
                     key={strength}
-                    className="flex items-start gap-3 bg-[#0F172A] rounded-lg p-4"
+                    className="flex items-start gap-3 bg-slate-50 rounded-lg p-4"
                   >
                     <CheckCircle2 className="w-5 h-5 text-[#10B981] mt-0.5 shrink-0" />
-                    <p className="text-[#CBD5E1]">{strength}</p>
+                    <p className="text-slate-500">{strength}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 bg-[#F59E0B]/20 rounded-lg flex items-center justify-center">
                   <Target className="w-5 h-5 text-[#F59E0B]" />
                 </div>
-                <h2 className="text-xl text-white">Weaknesses</h2>
+                <h2 className="text-xl text-slate-900">Weaknesses</h2>
               </div>
               <div className="space-y-3">
                 {weaknesses.map((weakness) => (
                   <div
                     key={weakness}
-                    className="flex items-start gap-3 bg-[#0F172A] rounded-lg p-4"
+                    className="flex items-start gap-3 bg-slate-50 rounded-lg p-4"
                   >
                     <ArrowRight className="w-5 h-5 text-[#F59E0B] mt-0.5 shrink-0" />
-                    <p className="text-[#CBD5E1]">{weakness}</p>
+                    <p className="text-slate-500">{weakness}</p>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          <section className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
-            <h2 className="text-xl text-white mb-5">Question Review</h2>
+          <section className="bg-white border border-slate-200 rounded-2xl p-6">
+            <h2 className="text-xl text-slate-900 mb-5">Question Review</h2>
             <div className="space-y-3">
               {questions.map((item, index) => (
                 <button
@@ -363,18 +363,18 @@ export function HRRound() {
                     setCurrentQuestion(index);
                     setIsSubmitted(false);
                   }}
-                  className="w-full text-left bg-[#0F172A] border border-[#334155] rounded-xl p-4 hover:border-[#2563EB] transition-all"
+                  className="w-full text-left bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-[#2563EB] transition-all"
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <div>
-                      <p className="text-white mb-1">
+                      <p className="text-slate-900 mb-1">
                         {index + 1}. {item.question}
                       </p>
-                      <p className="text-sm text-[#94A3B8]">
+                      <p className="text-sm text-slate-500">
                         {answers[index] || "No answer provided"}
                       </p>
                     </div>
-                    <span className="px-3 py-1 bg-[#2563EB]/20 text-[#60A5FA] rounded-full text-sm shrink-0">
+                    <span className="px-3 py-1 bg-[#2563EB]/20 text-[#2563EB] rounded-full text-sm shrink-0">
                       {questionScores[index]}%
                     </span>
                   </div>
@@ -385,25 +385,25 @@ export function HRRound() {
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
-          <section className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 md:p-8">
+          <section className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
               <div>
-                <p className="text-sm text-[#94A3B8] mb-2">
+                <p className="text-sm text-slate-500 mb-2">
                   Question {currentQuestion + 1} of {questions.length}
                 </p>
-                <h2 className="text-2xl text-white leading-snug mb-3">
+                <h2 className="text-2xl text-slate-900 leading-snug mb-3">
                   {question.question}
                 </h2>
-                <span className="inline-flex px-3 py-1 bg-[#2563EB]/20 text-[#60A5FA] rounded-full text-sm">
+                <span className="inline-flex px-3 py-1 bg-[#2563EB]/20 text-[#2563EB] rounded-full text-sm">
                   {question.category}
                 </span>
               </div>
               <div className="hidden md:flex w-12 h-12 bg-[#2563EB]/20 rounded-xl items-center justify-center shrink-0">
-                <MessageSquare className="w-6 h-6 text-[#60A5FA]" />
+                <MessageSquare className="w-6 h-6 text-[#2563EB]" />
               </div>
             </div>
 
-            <div className="w-full bg-[#0F172A] rounded-full h-2 mb-6">
+            <div className="w-full bg-slate-200 rounded-full h-2 mb-6">
               <div
                 className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] h-2 rounded-full transition-all"
                 style={{
@@ -412,12 +412,12 @@ export function HRRound() {
               />
             </div>
 
-            <div className="bg-[#0F172A] border border-[#334155] rounded-xl p-4 mb-6">
-              <p className="text-sm text-[#94A3B8] mb-2">AI Coaching Prompt</p>
-              <p className="text-[#CBD5E1]">{question.guide}</p>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6">
+              <p className="text-sm text-slate-500 mb-2">AI Coaching Prompt</p>
+              <p className="text-slate-500">{question.guide}</p>
             </div>
 
-            <label className="block text-white mb-3" htmlFor="hr-answer">
+            <label className="block text-slate-900 mb-3" htmlFor="hr-answer">
               Your Answer
             </label>
             <textarea
@@ -425,14 +425,14 @@ export function HRRound() {
               value={answers[currentQuestion]}
               onChange={(event) => updateAnswer(event.target.value)}
               placeholder="Write your answer as if you are speaking to an HR interviewer..."
-              className="w-full min-h-[260px] bg-[#0F172A] border border-[#334155] rounded-xl p-5 text-white placeholder:text-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent resize-y"
+              className="w-full min-h-[260px] bg-slate-50 border border-slate-200 rounded-xl p-5 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent resize-y"
             />
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-6">
               <button
                 onClick={goToPrevious}
                 disabled={currentQuestion === 0}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0F172A] border border-[#334155] text-white rounded-lg hover:border-[#2563EB] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-50 border border-slate-200 text-slate-900 rounded-lg hover:border-[#2563EB] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Previous Question
@@ -442,7 +442,7 @@ export function HRRound() {
                 {currentQuestion < questions.length - 1 && (
                   <button
                     onClick={goToNext}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0F172A] border border-[#334155] text-white rounded-lg hover:border-[#2563EB] transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-50 border border-slate-200 text-slate-900 rounded-lg hover:border-[#2563EB] transition-all"
                   >
                     Next Question
                     <ArrowRight className="w-4 h-4" />
@@ -450,7 +450,7 @@ export function HRRound() {
                 )}
                 <button
                   onClick={submitInterview}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white rounded-lg hover:shadow-lg hover:shadow-[#2563EB]/30 transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#2563EB] text-white rounded-lg hover:bg-[#1D4ED8] transition-all"
                 >
                   <Send className="w-4 h-4" />
                   Submit Interview
@@ -459,8 +459,8 @@ export function HRRound() {
             </div>
           </section>
 
-          <aside className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 h-fit">
-            <h3 className="text-white mb-4">Interview Map</h3>
+          <aside className="bg-white border border-slate-200 rounded-2xl p-6 h-fit">
+            <h3 className="text-slate-900 mb-4">Interview Map</h3>
             <div className="grid grid-cols-5 gap-2 mb-6">
               {questions.map((_, index) => {
                 const isCurrent = index === currentQuestion;
@@ -475,7 +475,7 @@ export function HRRound() {
                         ? "bg-[#2563EB] text-white"
                         : isAnswered
                         ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/40"
-                        : "bg-[#0F172A] text-[#94A3B8] border border-[#334155] hover:border-[#2563EB]"
+                        : "bg-slate-50 text-slate-900 border border-slate-200 hover:border-[#2563EB]"
                     }`}
                   >
                     {index + 1}
@@ -485,31 +485,31 @@ export function HRRound() {
             </div>
 
             <div className="space-y-3 text-sm mb-6">
-              <div className="flex items-center justify-between text-[#94A3B8]">
+              <div className="flex items-center justify-between text-slate-500">
                 <span>Answered</span>
-                <span className="text-white">{answeredCount}</span>
+                <span className="text-slate-900">{answeredCount}</span>
               </div>
-              <div className="flex items-center justify-between text-[#94A3B8]">
+              <div className="flex items-center justify-between text-slate-500">
                 <span>Remaining</span>
-                <span className="text-white">{questions.length - answeredCount}</span>
+                <span className="text-slate-900">{questions.length - answeredCount}</span>
               </div>
-              <div className="flex items-center justify-between text-[#94A3B8]">
+              <div className="flex items-center justify-between text-slate-500">
                 <span>Current Draft</span>
-                <span className="text-white">
+                <span className="text-slate-900">
                   {scoreAnswer(answers[currentQuestion])}%
                 </span>
               </div>
             </div>
 
-            <div className="bg-[#0F172A] border border-[#334155] rounded-xl p-4">
-              <p className="text-sm text-[#94A3B8] mb-2">Answer Quality</p>
-              <div className="w-full bg-[#1E293B] rounded-full h-2 mb-3">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+              <p className="text-sm text-slate-500 mb-2">Answer Quality</p>
+              <div className="w-full bg-slate-200 rounded-full h-2 mb-3">
                 <div
                   className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] h-2 rounded-full transition-all"
                   style={{ width: `${scoreAnswer(answers[currentQuestion])}%` }}
                 />
               </div>
-              <p className="text-sm text-[#CBD5E1]">
+              <p className="text-sm text-slate-500">
                 Add examples, results, and role fit to improve this answer.
               </p>
             </div>

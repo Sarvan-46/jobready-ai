@@ -18,6 +18,24 @@ export const isFirebaseConfigured = Boolean(
     firebaseConfig.appId
 );
 
+export const firebaseDebugConfig = {
+  apiKeyLoaded: Boolean(firebaseConfig.apiKey),
+  apiKeyPrefix: firebaseConfig.apiKey
+    ? `${firebaseConfig.apiKey.slice(0, 8)}...`
+    : "",
+  authDomain: firebaseConfig.authDomain,
+  projectId: firebaseConfig.projectId,
+  appIdLoaded: Boolean(firebaseConfig.appId),
+  appId: firebaseConfig.appId,
+  storageBucket: firebaseConfig.storageBucket,
+  messagingSenderId: firebaseConfig.messagingSenderId,
+  isFirebaseConfigured,
+};
+
 export const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
 export const db = getFirestore(firebaseApp);
+
+if (import.meta.env.DEV) {
+  console.debug("[Firebase] Loaded configuration", firebaseDebugConfig);
+}

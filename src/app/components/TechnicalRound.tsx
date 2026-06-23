@@ -140,41 +140,41 @@ export function TechnicalRound() {
     <div className="max-w-[1400px] mx-auto space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl mb-2 text-white">Technical Interview Round</h1>
-        <p className="text-[#94A3B8]">
+        <h1 className="text-3xl mb-2 text-slate-900">Technical Interview Round</h1>
+        <p className="text-slate-500">
           Master technical concepts and ace your interviews
         </p>
       </div>
 
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
           <div className="w-12 h-12 bg-[#2563EB]/20 rounded-xl flex items-center justify-center mb-4">
             <BookOpen className="w-6 h-6 text-[#2563EB]" />
           </div>
-          <p className="text-2xl mb-1 text-white">230</p>
-          <p className="text-sm text-[#94A3B8]">Total Questions</p>
+          <p className="text-2xl mb-1 text-slate-900">230</p>
+          <p className="text-sm text-slate-500">Total Questions</p>
         </div>
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
           <div className="w-12 h-12 bg-[#10B981]/20 rounded-xl flex items-center justify-center mb-4">
             <CheckCircle2 className="w-6 h-6 text-[#10B981]" />
           </div>
-          <p className="text-2xl mb-1 text-white">168</p>
-          <p className="text-sm text-[#94A3B8]">Completed</p>
+          <p className="text-2xl mb-1 text-slate-900">168</p>
+          <p className="text-sm text-slate-500">Completed</p>
         </div>
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
           <div className="w-12 h-12 bg-[#F59E0B]/20 rounded-xl flex items-center justify-center mb-4">
             <Video className="w-6 h-6 text-[#F59E0B]" />
           </div>
-          <p className="text-2xl mb-1 text-white">8</p>
-          <p className="text-sm text-[#94A3B8]">Mock Interviews</p>
+          <p className="text-2xl mb-1 text-slate-900">8</p>
+          <p className="text-sm text-slate-500">Mock Interviews</p>
         </div>
-        <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6">
           <div className="w-12 h-12 bg-[#8B5CF6]/20 rounded-xl flex items-center justify-center mb-4">
             <Star className="w-6 h-6 text-[#8B5CF6]" />
           </div>
-          <p className="text-2xl mb-1 text-white">4.6/5</p>
-          <p className="text-sm text-[#94A3B8]">Avg. Performance</p>
+          <p className="text-2xl mb-1 text-slate-900">4.6/5</p>
+          <p className="text-sm text-slate-500">Avg. Performance</p>
         </div>
       </div>
 
@@ -193,21 +193,21 @@ export function TechnicalRound() {
       <div className="flex justify-center">
         <button
           onClick={calculateScore}
-          className="px-6 py-3 bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white rounded-lg hover:shadow-lg hover:shadow-[#2563EB]/50 transition-all font-semibold"
+          className="px-6 py-3 bg-[#2563EB] text-white rounded-lg hover:bg-[#1D4ED8] transition-all font-semibold"
         >
           Calculate & Save Technical Score
         </button>
       </div>
 
       {/* Tabs */}
-      <div className="border-b border-[#334155]">
+      <div className="border-b border-slate-200">
         <div className="flex gap-8">
           <button
             onClick={() => setActiveTab("topics")}
             className={`pb-4 px-2 transition-all ${
               activeTab === "topics"
                 ? "text-[#2563EB] border-b-2 border-[#2563EB]"
-                : "text-[#94A3B8] hover:text-white"
+                : "text-slate-500 hover:text-slate-900"
             }`}
           >
             Topics & Questions
@@ -217,7 +217,7 @@ export function TechnicalRound() {
             className={`pb-4 px-2 transition-all ${
               activeTab === "mock"
                 ? "text-[#2563EB] border-b-2 border-[#2563EB]"
-                : "text-[#94A3B8] hover:text-white"
+                : "text-slate-500 hover:text-slate-900"
             }`}
           >
             Mock Interviews
@@ -234,7 +234,7 @@ export function TechnicalRound() {
               return (
                 <div
                   key={topic.name}
-                  className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 hover:border-[#2563EB] transition-all group"
+                  className="bg-white border border-slate-200 rounded-2xl p-6 hover:border-[#2563EB] transition-all group"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div
@@ -243,27 +243,27 @@ export function TechnicalRound() {
                       {topic.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-white">{topic.name}</h3>
-                      <p className="text-sm text-[#94A3B8]">
+                      <h3 className="text-slate-900">{topic.name}</h3>
+                      <p className="text-sm text-slate-500">
                         {topic.questions} questions
                       </p>
                     </div>
                   </div>
                   <div className="mb-4">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-[#94A3B8]">Progress</span>
-                      <span className="text-sm text-white">
+                      <span className="text-sm text-slate-500">Progress</span>
+                      <span className="text-sm text-slate-900">
                         {topic.completed}/{topic.questions}
                       </span>
                     </div>
-                    <div className="w-full bg-[#0F172A] rounded-full h-2">
+                    <div className="w-full bg-slate-200 rounded-full h-2">
                       <div
                         className={`bg-gradient-to-r ${topic.color} h-2 rounded-full transition-all`}
                         style={{ width: `${progress}%` }}
                       ></div>
                     </div>
                   </div>
-                  <button className="w-full flex items-center justify-center gap-2 py-3 bg-[#0F172A] border border-[#334155] text-white rounded-lg hover:bg-gradient-to-r hover:from-[#2563EB] hover:to-[#1D4ED8] hover:border-transparent transition-all">
+                  <button className="w-full flex items-center justify-center gap-2 py-3 bg-slate-50 border border-slate-200 text-slate-900 rounded-lg hover:border-[#2563EB] transition-all">
                     <Play className="w-4 h-4" />
                     Continue Learning
                   </button>
@@ -273,24 +273,24 @@ export function TechnicalRound() {
           </div>
 
           {/* Recent Questions */}
-          <div className="bg-[#1E293B] border border-[#334155] rounded-xl p-6">
-            <h2 className="text-xl text-white mb-6">Recent Questions</h2>
+          <div className="bg-white border border-slate-200 rounded-2xl p-6">
+            <h2 className="text-xl text-slate-900 mb-6">Recent Questions</h2>
             <div className="space-y-4">
               {recentQuestions.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 bg-[#0F172A] rounded-lg hover:bg-[#1E293B] transition-colors"
+                  className="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
                 >
                   <div className="flex items-start gap-4 flex-1">
                     {item.answered ? (
                       <CheckCircle2 className="w-5 h-5 text-[#10B981] mt-1" />
                     ) : (
-                      <div className="w-5 h-5 border-2 border-[#334155] rounded-full mt-1"></div>
+                      <div className="w-5 h-5 border-2 border-slate-200 rounded-full mt-1"></div>
                     )}
                     <div className="flex-1">
-                      <p className="text-white mb-2">{item.question}</p>
+                      <p className="text-slate-900 mb-2">{item.question}</p>
                       <div className="flex items-center gap-3">
-                        <span className="text-sm text-[#94A3B8]">
+                        <span className="text-sm text-slate-500">
                           {item.topic}
                         </span>
                         <span
@@ -307,7 +307,7 @@ export function TechnicalRound() {
                       </div>
                     </div>
                   </div>
-                  <button className="px-4 py-2 bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white rounded-lg hover:shadow-lg hover:shadow-[#2563EB]/50 transition-all">
+                  <button className="px-4 py-2 bg-[#2563EB] text-white rounded-lg hover:bg-[#1D4ED8] transition-all">
                     {item.answered ? "Review" : "Answer"}
                   </button>
                 </div>
@@ -322,14 +322,14 @@ export function TechnicalRound() {
         <div className="space-y-6">
           <div className="bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] rounded-xl p-6">
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
-                <Mic className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center">
+                  <Mic className="w-8 h-8 text-[#2563EB]" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl text-white mb-2">
+                <h3 className="text-2xl text-slate-900 mb-2">
                   AI-Powered Mock Interviews
                 </h3>
-                <p className="text-blue-100">
+                <p className="text-slate-500">
                   Practice with our advanced AI interviewer and get instant
                   feedback
                 </p>
@@ -341,11 +341,11 @@ export function TechnicalRound() {
             {mockInterviews.map((interview, index) => (
               <div
                 key={index}
-                className="bg-[#1E293B] border border-[#334155] rounded-xl p-6 hover:border-[#2563EB] transition-all"
+                className="bg-white border border-slate-200 rounded-2xl p-6 hover:border-[#2563EB] transition-all"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-white mb-2">{interview.title}</h3>
+                    <h3 className="text-slate-900 mb-2">{interview.title}</h3>
                     <div className="flex items-center gap-2 mb-3">
                       <span className="px-3 py-1 bg-[#2563EB]/20 text-[#2563EB] text-xs rounded-full">
                         {interview.type}
@@ -362,7 +362,7 @@ export function TechnicalRound() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-6 mb-6 text-sm text-[#94A3B8]">
+                <div className="flex items-center gap-6 mb-6 text-sm text-slate-500">
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" />
                     {interview.duration}
@@ -376,7 +376,7 @@ export function TechnicalRound() {
                     {interview.participants.toLocaleString()}
                   </div>
                 </div>
-                <button className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white rounded-lg hover:shadow-lg hover:shadow-[#2563EB]/50 transition-all">
+                <button className="w-full flex items-center justify-center gap-2 py-3 bg-[#2563EB] text-white rounded-lg hover:bg-[#1D4ED8] transition-all">
                   <Video className="w-4 h-4" />
                   Start Interview
                 </button>
